@@ -1,0 +1,6 @@
+data <- read.csv("C:/Users/USER/Desktop/Course era/ExData_Plotting1/Exploratory Data Analysis/household_power_consumption.txt", sep=";", na.strings="?")
+newdata <- subset(data,Date=="1/2/2007" | Date == "2/2/2007")
+newdata$DateTime <- strptime(paste(newdata$Date, newdata$Time),"%d/%m/%Y %H:%M:%S")
+png( filename="C:/Users/USER/Desktop/Course era/Exploratory Data Analysis/plot1.png", width=400, height =400, units = "px", bg="transparent")
+hist(newdata$Global_active_power,col="red", main ="Global Active Power", xlab="Global Active Power (kilowatts)",breaks=12, ylim=c(0,1200))
+dev.off()
